@@ -1,0 +1,143 @@
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <style>
+         body {font-family: Arial, Helvetica, sans-serif;}
+         /* Full-width input fields */
+         input[type=text], input[type=description] {
+         width: 100%;
+         padding: 12px 20px;
+         margin: 8px 0;
+         display: inline-block;
+         border: 1px solid #ccc;
+         box-sizing: border-box;
+         }
+         /* Set a style for all buttons */
+         button {
+         background-color: #04AA6D;
+         color: white;
+         padding: 14px 20px;
+         margin: 8px 0;
+         border: none;
+         cursor: pointer;
+         width: 100%;
+         }
+         button:hover {
+         opacity: 0.8;
+         }
+         /* Extra styles for the cancel button */
+         .cancelbtn {
+         width: auto;
+         padding: 10px 18px;
+         background-color: #f44336;
+         }
+         /* Center the image and position the close button */
+         .imgcontainer {
+         text-align: center;
+         margin: 24px 0 12px 0;
+         position: relative;
+         }
+         .container {
+         padding: 8px;
+         }
+         span.psw {
+         float: right;
+         padding-top: 16px;
+         }
+         /* The Modal (background) */
+         .modal {
+         display: none;
+         position: fixed;
+         z-index: 8;
+         left: 100;
+         top: 0;
+         width: 48%;
+         height: 89%;
+         overflow: auto;
+         }
+         /* The Close Button (x) */
+         .close {
+         position: absolute;
+         right: 25px;
+         top: 0;
+         color: #000;
+         font-size: 35px;
+         font-weight: bold;
+         }
+         .close:hover,
+         .close:focus {
+         color: red;
+         cursor: pointer;
+         }
+         /* Add Zoom Animation */
+         .animate {
+         -webkit-animation: animatezoom 0.6s;
+         animation: animatezoom 0.6s
+         }
+         @-webkit-keyframes animatezoom {
+         from {-webkit-transform: scale(0)} 
+         to {-webkit-transform: scale(1)}
+         }
+         @keyframes animatezoom {
+         from {transform: scale(0)} 
+         to {transform: scale(1)}
+         }
+         /* Change styles for span and cancel button on extra small screens */
+         @media screen and (max-width: 300px) {
+         span.psw {
+         display: block;
+         float: none;
+         }
+         .cancelbtn {
+         width: 100%;
+         }
+         }
+         .container{
+         background-color: #adb5bd;
+         }
+      </style>
+   </head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+   <style>
+      /* Custom style */
+      .navbar{
+      margin-bottom: 1rem;
+      }
+      /* Modal Content/Box */
+      .modal-content {
+      background-color: #fefefe;
+      margin: 2% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+      border: 1px solid #888;
+      width: 60%; /* Could be more or less, depending on screen size */
+      }
+   </style>
+   </head>
+   </form>   
+   </nav>   
+   <%=form_for :cloud,url:users_update_path,:html=>{:id=>"submit_form", :multipart => true} do |f|%>  
+   <div class="container-fluid">
+      <form class="modal-content animate"  method="post">
+         <div class="imgcontainer">
+            <img src="/assets/tec.jpeg" style="width:70px" ><br>
+            <b>Tecorb Technology</b>
+         </div>
+         <div class="container">
+            <label for="title"><b>Title</b></label>
+            <input type="text" value="<%= @user.title %>" id="title" placeholder="Enter Title" name="title" required>
+            <label for="description"><b>Description</b></label>
+            <input type="description" placeholder="Enter description" value="<%= @user.description%>" id="title" name="description" required><br><br>
+            <label for="image"><b>Image</b></label>
+            <input type="file" name="image" value="<%= @user.image%>" accept="image/x-png,image/gif,image/jpeg" / required><br><br>
+            <button type="submit">Update</button>
+         </div>
+         <div class="container" style="background-color:#f1f1f1">
+            <button type="button"  style.display='none' class="cancelbtn"><%= link_to "Cancle", root_path(@users) %></button>
+         </div>
+      </form>
+   </div>
+   </div>
+   <% end %>

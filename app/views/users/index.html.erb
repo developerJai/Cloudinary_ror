@@ -1,0 +1,212 @@
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <style>
+         body {font-family: Arial, Helvetica, sans-serif;}
+         /* Full-width input fields */
+         input[type=text], input[type=description] {
+         width: 100%;
+         padding: 12px 20px;
+         margin: 8px 0;
+         display: inline-block;
+         border: 1px solid #ccc;
+         box-sizing: border-box;
+         }
+         /* Set a style for all buttons */
+         button {
+         background-color: #6c757d;
+         color: white;
+         padding: 10px 15px;
+         margin: 8px 0;
+         border: none;
+         cursor: pointer;
+         width: 100%;        
+         }
+         button:hover {
+         opacity: 0.8;
+         background-color: green;
+         }
+         /* Extra styles for the cancel button */
+         .cancelbtn {
+         width: auto;
+         padding: 10px 18px;
+         background-color: #f44336;
+         }
+         /* Center the image and position the close button */
+         .imgcontainer {
+         text-align: center;
+         margin: 24px 0 12px 0;
+         position: relative;
+         }
+         img.avatar {
+         width: 40%;
+         border-radius: 50%;
+         }
+         .container {
+         padding: 8px;
+         }
+         span.psw {
+         float: right;
+         padding-top: 16px;
+         }
+         /* The Modal (background) */
+         .modal {
+         display: none;
+         position: fixed;
+         z-index: 8;
+         left: 100;
+         top: 0;
+         width: 48%;
+         height: 89%;
+         overflow: auto;
+         }
+         /* The Close Button (x) */
+         .close {
+         position: absolute;
+         right: 127px;
+         top: 70px;
+         color: #000;
+         font-size: 35px;
+         font-weight: bold;
+         }
+         .close:hover,
+         .close:focus {
+         color: red;
+         cursor: pointer;
+         }
+         /* Add Zoom Animation */
+         .animate {
+         -webkit-animation: animatezoom 0.6s;
+         animation: animatezoom 0.6s
+         }
+         @-webkit-keyframes animatezoom {
+         from {-webkit-transform: scale(0)} 
+         to {-webkit-transform: scale(1)}
+         }
+         @keyframes animatezoom {
+         from {transform: scale(0)} 
+         to {transform: scale(1)}
+         }
+         /* Change styles for span and cancel button on extra small screens */
+         @media screen and (max-width: 300px) {
+         span.psw {
+         display: block;
+         float: none;
+         }
+         .cancelbtn {
+         width: 100%;
+         }
+         }
+         .container{
+         background-color: #adb5bd;
+         }
+      </style>
+   </head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+   <style>
+      /* Custom style */
+      .navbar{
+      margin-bottom: 1rem;
+      }
+      /* Modal Content/Box */
+      .modal-content {
+      background-color: #fefefe;
+      margin: 2% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+      border: 1px solid #888;
+      width: 60%; /* Could be more or less, depending on screen size */
+      }
+   </style>
+   </head>
+   <div class="m-4">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+         <div class="container-fluid">
+            <a href="#" class="navbar-brand">Tecorb Technology</a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse1">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse1">
+               <div class="navbar-nav">
+                  <a href="http://127.0.0.1:3000/" class="nav-item nav-link active">Home</a>
+                  <a href="#" class="nav-item nav-link">About</a>
+                  <a href="#" class="nav-item nav-link">Products</a>
+               </div>
+               <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Create</button>
+               </form>
+            </div>
+         </div>
+      </nav>
+   </div>
+   <div class="container">
+   <%=form_for :user,url:users_create_path,:html=>{:id=>"submit_form", :multipart => true} do |f|%>  
+   <div class="container-fluid">
+      <div id="id01" class="modal">
+         <form class="modal-content animate"  method="post">
+            <div class="imgcontainer">
+               <span onclick="document.getElementById('id01').style.display='none'" style="width: 50px" class="close" title="Close Modal">&times;</span><br><br><br>
+            </div>
+            <div class="container">
+               <label for="title"><b>Title</b></label>
+               <input type="text" placeholder="Enter Title" id="title" name="title" required>
+               <label for="description"><b>Description</b></label>
+               <input type="description" placeholder="Enter description" id="descriptions" name="description" required><br><br>
+               <label for="image"><b>Image</b></label>
+               <input type="file" name="image" accept="image/x-png,image/gif,image/jpeg" /required><br><br>
+               <button type="submit" onclick="myFunction()">Upload</button>
+            </div>
+            <div class="container" style="background-color:#f1f1f1">
+               <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+            </div>
+         </form>
+      </div>
+   </div>
+   <% end %>
+   <script>
+      // Get the modal
+      var modal = document.getElementById('id01');
+      
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+          if (event.target == modal) {
+              modal.style.display = "none";
+          }
+      }
+   </script>
+   </body>
+   </html>
+      <div class="card" style="width: 18%;" >
+      <h4>Total Upload</h4>
+      <div class="col-lg-2 bor">
+      <h5> <%=User.count%></h5>
+      </div>               
+   </div> <br>
+<div class="row">
+<div class="col-lg-12">
+<div class="ibox ">
+<div class="ibox-content table-responsive" >
+<table class="table table-hover no-margins">
+   <tr>
+      <th style="text-align:center;background-color:white;">ID</th>
+      <th style="text-align:center;background-color:white;">Title</th>
+      <th style="text-align:center;background-color:white;">Description</th>
+      <th style="text-align:center;background-color:white;">Action</th>
+   </tr>
+   </thead>
+   <tbody id="table">
+      <tr>
+         <% @users.reverse.each do |sub|%>  
+
+         <td style="text-align:center;"><%=sub.id%></td>
+         <td style="text-align:center;"><%=sub.title%></td>
+         <td style="text-align:center;"><%=sub.description%></td>
+         <td style="text-align:center;"><%= link_to "Edit", users_edit_path(id:sub.id)%> &nbsp;&nbsp;<%= link_to "Destroy",  users_destroy_path(sub.id), data: {
+            turbo_method: :delete,
+            turbo_confirm: "Are you confirm?"
+            } %> </td></th> 
+      </tr>
+      <% end %>
+   </tbody>
+</table>
